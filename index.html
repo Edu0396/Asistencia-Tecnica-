@@ -134,19 +134,19 @@
 
   <div class="kpis">
     <div class="kpi">
-      <div class="head"><div class="kico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/><circle cx="12" cy="12" r="10"/></svg></div><div class="l">Emprendimientos atendidos</div></div>
+      <div class="head"><div class="kico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/><circle cx="12" cy="12" r="10"/></svg></div><div class="l">Emprendimientos con diagnósticos</div></div>
       <div class="v" id="k1">—</div><div class="kbar"><i id="k1bar"></i></div><div class="s" id="k1s"></div>
     </div>
     <div class="kpi k2">
-      <div class="head"><div class="kico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div class="l">Asesorías brindadas (emp. + SSE/MIPYME)</div></div>
+      <div class="head"><div class="kico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div class="l">Asesorías técnicas a emprendimientos + Asesorías a SSE/MIPYME</div></div>
       <div class="v" id="k2">—</div><div class="kbar"><i id="k2bar"></i></div><div class="s" id="k2s"></div>
     </div>
     <div class="kpi k3">
-      <div class="head"><div class="kico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/></svg></div><div class="l">Empresas SSE / MIPYME atendidas</div></div>
+      <div class="head"><div class="kico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/></svg></div><div class="l">Empresas SSE/MIPYME asistidas</div></div>
       <div class="v" id="k3">—</div><div class="kbar"><i id="k3bar"></i></div><div class="s" id="k3s"></div>
     </div>
     <div class="kpi k4">
-      <div class="head"><div class="kico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="l">Capacitados (emprend. + empresas)</div></div>
+      <div class="head"><div class="kico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="l">Emprendimientos capacitados + Empresas SSE/MIPYME capacitadas</div></div>
       <div class="v" id="k4">—</div><div class="kbar"><i id="k4bar"></i></div><div class="s" id="k4s"></div>
     </div>
   </div>
@@ -204,8 +204,8 @@
 if(typeof ChartDataLabels!=='undefined'){Chart.register(ChartDataLabels);Chart.defaults.plugins.datalabels={display:false};}
 Chart.defaults.font.family="Georgia, 'Times New Roman', serif";
 
-const catsFull=["Emprendimientos","Asesorías a\nemprendimiento","Empresas\nSSE/MIPYME","Asesorías a\nSSE/MIPYME","Empresas\ncapacitadas","Emprendim.\ncapacitados"];
-const catsShort=["Emprendimientos","Asesorías emp.","Empresas SSE/MIPYME","Asesorías SSE/MIPYME","Empresas capacitadas","Emprend. capacitados"];
+const catsFull=["Emprendimientos\ncon diagnósticos","Asesorías técnicas a\nemprendimientos","Empresas SSE/MIPYME\nasistidas","Asesorías a\nSSE/MIPYME","Empresas SSE/MIPYME\ncapacitadas","Emprendimientos\ncapacitados"];
+const catsShort=["Emprendimientos con diagnósticos","Asesorías técnicas a emprendimientos","Empresas SSE/MIPYME asistidas","Asesorías a SSE/MIPYME","Empresas SSE/MIPYME capacitadas","Emprendimientos capacitados"];
 const meses=["Enero","Febrero","Marzo","Abril","Mayo","Junio"];
 const data=[
   [7,10,4,10,13,0],[13,20,14,16,13,3],[67,359,45,119,42,106],[79,102,43,47,23,44],[74,338,39,210,36,23],[188,350,79,161,40,178]
