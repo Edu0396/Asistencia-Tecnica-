@@ -99,7 +99,7 @@
     <h1>Ejecución del Plan Operativo Anual 2026</h1>
     <div class="sub">Sub Dirección de Asistencia Técnica · SENPRENDE</div>
   </div>
-  <div class="right"><span id="period">Acumulado Ene – May 2026</span></div>
+  <div class="right"><span id="period">Acumulado Ene – Jun 2026</span></div>
 </div>
 
 <div class="container">
@@ -113,7 +113,7 @@
       <select class="msel" id="fMes">
         <option value="all">Todos los meses</option>
         <option value="0">Enero</option><option value="1">Febrero</option>
-        <option value="2">Marzo</option><option value="3">Abril</option><option value="4">Mayo</option>
+        <option value="2">Marzo</option><option value="3">Abril</option><option value="4">Mayo</option><option value="5">Junio</option>
       </select>
       <span class="active-pill hidden" id="activePill"></span>
     </div>
@@ -127,7 +127,7 @@
     <div class="gc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></div>
     <div class="gc-body">
       <div class="gc-title">Avance global del POA · Asistencia Técnica</div>
-      <div class="gc-sub">Cumplimiento promedio de los seis indicadores a mayo · ritmo esperado 41.7%</div>
+      <div class="gc-sub">Cumplimiento promedio de los seis indicadores a junio · ritmo esperado 50.0%</div>
     </div>
     <div class="gc-num"><span id="gaugeTxt">—</span><div class="gc-num-l" id="gaugeState"></div></div>
   </div>
@@ -178,7 +178,7 @@
 
   <div class="card" style="margin-bottom:18px;">
     <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Avance acumulado vs. Meta POA 2026</h2>
-    <div class="cs">Ejecutado de enero a mayo frente a la meta anual de cada indicador (siempre acumulado)</div>
+    <div class="cs">Ejecutado de enero a junio frente a la meta anual de cada indicador (siempre acumulado)</div>
     <table>
       <thead><tr><th>Indicador</th><th class="num">Ejecutado</th><th class="num">Meta POA</th><th style="width:200px;">Avance</th><th class="num">Falta</th><th>Ritmo</th></tr></thead>
       <tbody id="metaBody"></tbody>
@@ -187,7 +187,7 @@
 
   <div class="findings">
     <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>Hallazgos y recomendaciones</h2>
-    <div class="intro">Lectura automática de los datos del POA a mayo. Se actualizará conforme se carguen nuevos meses.</div>
+    <div class="intro">Lectura automática de los datos del POA a junio. Se actualizará conforme se carguen nuevos meses.</div>
     <div class="find-grid">
       <div class="find-col hall"><h3>⚠ Principales hallazgos</h3><div id="hallList"></div></div>
       <div class="find-col reco"><h3>✓ Recomendaciones</h3><div id="recoList"></div></div>
@@ -196,7 +196,7 @@
 
   <div class="footnote">
     <b>Elaborado por:</b> M.Sc. Eduardo Canales · <b>Fuente de datos:</b> Sub Dirección de Asistencia Técnica, SENPRENDE.<br>
-    Los KPIs y la tabla de avance usan el acumulado anual; el gráfico de producción y el indicador clave responden al filtro de mes. Ritmo lineal esperado a mayo = 41.7% (5 de 12 meses).
+    Los KPIs y la tabla de avance usan el acumulado anual; el gráfico de producción y el indicador clave responden al filtro de mes. Ritmo lineal esperado a junio = 50.0% (6 de 12 meses).
   </div>
 </div>
 
@@ -206,13 +206,13 @@ Chart.defaults.font.family="Georgia, 'Times New Roman', serif";
 
 const catsFull=["Emprendimientos","Asesorías a\nemprendimiento","Empresas\nSSE/MIPYME","Asesorías a\nSSE/MIPYME","Empresas\ncapacitadas","Emprendim.\ncapacitados"];
 const catsShort=["Emprendimientos","Asesorías emp.","Empresas SSE/MIPYME","Asesorías SSE/MIPYME","Empresas capacitadas","Emprend. capacitados"];
-const meses=["Enero","Febrero","Marzo","Abril","Mayo"];
+const meses=["Enero","Febrero","Marzo","Abril","Mayo","Junio"];
 const data=[
-  [7,10,4,10,13,0],[13,20,14,16,13,3],[67,359,45,119,42,106],[79,102,43,47,23,44],[74,338,39,210,36,23]
+  [7,10,4,10,13,0],[13,20,14,16,13,3],[67,359,45,119,42,106],[79,102,43,47,23,44],[74,338,39,210,36,23],[188,350,79,161,40,178]
 ];
 const meta=[860,2500,450,1350,230,285];
 const colors=["#1B3C8C","#2E63C4","#E8742C","#F2B705","#3C9A4E","#7A4FB5"];
-const RITMO=41.7;
+const RITMO=50.0;
 const acum=catsFull.map((_,i)=>data.reduce((s,r)=>s+r[i],0));
 let sel="all",charts={};
 function curVals(){return sel==="all"?acum.slice():data[+sel].slice();}
@@ -318,7 +318,7 @@ function buildGauge(){
     if(avg>=RITMO){st.textContent='✓ En ritmo';st.style.color='#3C9A4E';}
     else{st.textContent='▼ Bajo el ritmo esperado';st.style.color='#E8742C';}
     document.querySelector('.gc-title').textContent='Avance global del POA · Asistencia Técnica';
-    document.querySelector('.gc-sub').textContent='Cumplimiento promedio de los seis indicadores a mayo · ritmo esperado 41.7%';
+    document.querySelector('.gc-sub').textContent='Cumplimiento promedio de los seis indicadores a junio · ritmo esperado 50.0%';
   }else{
     // Aporte del mes: promedio del % de meta anual cubierto en ese mes, vs ritmo mensual 8.3%
     const v=curVals();
@@ -337,8 +337,8 @@ function buildFindings(){
   // ===== Cálculos estrictos sobre los datos =====
   const pct=catsShort.map((c,i)=>({c,i,p:acum[i]/meta[i]*100,ej:acum[i],meta:meta[i],falta:meta[i]-acum[i]}));
   const avg=acum.reduce((s,v,i)=>s+v/meta[i],0)/6*100;
-  const mesesTransc=5, mesesAnio=12;
-  const ritmoEsp=mesesTransc/mesesAnio*100; // 41.7
+  const mesesTransc=data.length, mesesAnio=12;
+  const ritmoEsp=mesesTransc/mesesAnio*100;
   // ordenar por avance
   const porAvance=[...pct].sort((a,b)=>a.p-b.p);
   const masBajo=porAvance[0], masAlto=porAvance[porAvance.length-1];
@@ -358,7 +358,7 @@ function buildFindings(){
   const ratioSseAse=(acum[3]/acum[2]).toFixed(1);
 
   const H=[];
-  H.push(["1",`El avance global a mayo es de <b>${avg.toFixed(1)}%</b> frente a un ritmo lineal esperado de <b>${ritmoEsp.toFixed(1)}%</b> (5 de 12 meses): una brecha de <b>${(ritmoEsp-avg).toFixed(1)} puntos</b> por debajo de lo esperado.`]);
+  H.push(["1",`El avance global a ${meses[meses.length-1].toLowerCase()} es de <b>${avg.toFixed(1)}%</b> frente a un ritmo lineal esperado de <b>${ritmoEsp.toFixed(1)}%</b> (${mesesTransc} de 12 meses): una brecha de <b>${(ritmoEsp-avg).toFixed(1)} puntos</b> ${avg>=ritmoEsp?'por encima':'por debajo'} de lo esperado.`]);
   H.push(["2",`El indicador con menor avance es <b>${masBajo.c}</b> (${masBajo.p.toFixed(1)}%: ${fmt(masBajo.ej)} de ${fmt(masBajo.meta)}); el de mayor avance es <b>${masAlto.c}</b> (${masAlto.p.toFixed(1)}%: ${fmt(masAlto.ej)} de ${fmt(masAlto.meta)}).`]);
   H.push(["3",`<b>${rezagados.length} de 6</b> indicadores están por debajo del ritmo esperado y <b>${enRitmo.length} de 6</b> lo superan. Los rezagados son: ${rezagados.sort((a,b)=>a.p-b.p).map(x=>x.c+" ("+x.p.toFixed(0)+"%)").join(", ")}.`]);
   H.push(["4",`La producción se concentra en <b>${meses[maxMes]}</b>, que aporta el <b>${pctMaxMes.toFixed(1)}%</b> del total acumulado (${fmt(totMes[maxMes])} de ${fmt(totalGeneral)} atenciones); el mes más bajo fue <b>${meses[minMes]}</b> (${fmt(totMes[minMes])}).`]);
@@ -381,7 +381,7 @@ const fMes=document.getElementById('fMes'), pill_=document.getElementById('activ
 fMes.addEventListener('change',()=>{
   sel=fMes.value;
   const isAll=sel==="all";
-  document.getElementById('period').textContent= isAll?"Acumulado Ene – May 2026":meses[+sel]+" 2026";
+  document.getElementById('period').textContent= isAll?"Acumulado Ene – Jun 2026":meses[+sel]+" 2026";
   pill_.classList.toggle('hidden',isAll);
   if(!isAll)pill_.textContent="● "+meses[+sel];
   redraw();
