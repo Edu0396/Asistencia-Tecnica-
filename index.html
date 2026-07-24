@@ -204,7 +204,7 @@
 if(typeof ChartDataLabels!=='undefined'){Chart.register(ChartDataLabels);Chart.defaults.plugins.datalabels={display:false};}
 Chart.defaults.font.family="Georgia, 'Times New Roman', serif";
 
-const catsFull=["Emprendimientos\ncon diagnósticos","Asesorías técnicas a\nemprendimientos","Empresas SSE/MIPYME\nasistidas","Asesorías a\nSSE/MIPYME","Empresas SSE/MIPYME\ncapacitadas","Emprendimientos\ncapacitados"];
+const catsFull=["Emprendimientos\ncon diagnósticos","Asesorías técnicas\na emprendimientos","Empresas\nSSE/MIPYME\nasistidas","Asesorías a\nSSE/MIPYME","Empresas\nSSE/MIPYME\ncapacitadas","Emprendimientos\ncapacitados"];
 const catsShort=["Emprendimientos con diagnósticos","Asesorías técnicas a emprendimientos","Empresas SSE/MIPYME asistidas","Asesorías a SSE/MIPYME","Empresas SSE/MIPYME capacitadas","Emprendimientos capacitados"];
 const meses=["Enero","Febrero","Marzo","Abril","Mayo","Junio"];
 const data=[
@@ -254,12 +254,12 @@ function buildCats(){
   const cols=idx.map(o=>colors[o.i]);
   charts.cats=new Chart(document.getElementById('chCats'),{
     type:'bar',
-    data:{labels,datasets:[{data:vals,backgroundColor:cols,borderRadius:7,maxBarThickness:70}]},
-    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24}},
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+fmt(c.parsed.y)}},
+    data:{labels,datasets:[{data:vals,backgroundColor:cols,borderRadius:7,maxBarThickness:56,categoryPercentage:0.72,barPercentage:0.9}]},
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24,left:4,right:4}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{title:items=>items[0].label.replace(/\n/g,' '),label:c=>' '+fmt(c.parsed.y)}},
         datalabels:{display:true,anchor:'end',align:'end',offset:2,color:'#1a2230',font:{weight:'800',size:13},formatter:val=>fmt(val)}},
-      scales:{x:{grid:{display:false},ticks:{font:{size:10},autoSkip:false,maxRotation:0,minRotation:0,callback:function(val){return this.getLabelForValue(val).split('\n');}}},
-        y:{grid:{color:'#eef'},ticks:{font:{size:10}},grace:'10%'}}}
+      scales:{x:{grid:{display:false},ticks:{font:{size:9.5},autoSkip:false,maxRotation:0,minRotation:0,padding:4,callback:function(val){return this.getLabelForValue(val).split('\n');}}},
+        y:{grid:{color:'#eef'},ticks:{font:{size:10}},grace:'12%'}}}
   });
   document.getElementById('t1').textContent= sel==="all"?"Producción acumulada por tipo de atención":`Producción de ${meses[+sel]} por tipo de atención`;
 }
